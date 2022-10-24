@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Tareas</h1>
+
+<ul>
+    {% for tar in tareas %}
+
+    <li>
+        <a href="{% url 'task_detail' tar.id %}">
+            <h1>{{tar.titulo}}</h1>
+            <p>{{tar.descripcion}}</p>
+            <p>{{tar.usuario.username}}</p>
+            <p>{{tar.dia_competado|date:'M j Y:i'}}</p>
+        </a>
+    </li>
+
+    {% endfor %}
+
+</ul>
+{% endblock %}
